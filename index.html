@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <!-- Edit to insert your title in browser tab -->
-    <title>fusion-map-point</title>
+    <title>Searchable Map Template Demo</title>
     <meta charset='utf-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta content='' name='description' />
@@ -24,10 +23,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!-- Edit to insert your title above the map -->
-          <a class='navbar-brand' href='index.html'>Searchable Map Template v1.4 fusion-map-point</a>
+          <a class='navbar-brand' href='index.html'>Searchable Map Template</a>
         </div>
-        <!-- Edit to change buttons in upper-right corner above map -->
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class='active'><a href="index.html">Map</a></li>
@@ -36,11 +33,10 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-    <!-- Edit to insert text about the map -->
     <div class='container-fluid'>
       <div class='row'>
         <div class='col-md-4'>
-          <p>Search for Connecticut Public Schools 2014-15.</br>View <a href="http://github.com/jackdougherty/fusion-map-point">fusion-map-point code on GitHub</a>, based on <a href='http://derekeder.com'>Derek Eder's</a> <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> with Google <a href='http://support.google.com/fusiontables/answer/2571232?hl=en&ref_topic=1652595'>Fusion Tables</a>. See tutorial to build your own in Google Fusion Templates section of <a href="http://datavizforall.org">Data Visualization For All</a>.</p>
+          <p>This is a demo of <a href='http://derekeder.com'>Derek Eder's</a> <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> using Google <a href='http://support.google.com/fusiontables/answer/2571232?hl=en&ref_topic=1652595'>Fusion Tables</a>. Use this section to give a little context to your map.</p>
           <div class='well'>
             <h4>
               Address <small>(<a id='find_me' href='#'>find me</a>)</small>
@@ -52,7 +48,6 @@
               <label>
                 within
                 <select id='search_radius'>
-                  <!-- Edit to remove radius search choices from index.html. See more options in maps_lib.js -->
                   <option value='400'>2 blocks</option>
                   <option value='805'>1/2 mile</option>
                   <option value='1610'>1 mile</option>
@@ -60,47 +55,32 @@
                 </select>
               </label>
             </p>
-            <!-- Edit to change title and filter tools for point layer. Also add filter to maps_lib.js -->
-            <h4>
-              Connecticut Public Schools
-            </h4>
-            <ul class='inputs-list unstyled'>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType1' />
-                  <span class='filter-box filter-blue'></span>
-                  District Schools
-                </label>
-              </li>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType2' />
-                  <span class='filter-box filter-green'></span>
-                  Interdistrict Magnets
-                </label>
-              </li>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType3' />
-                  <span class='filter-box filter-red'></span>
-                  Charter Schools
-                </label>
-              </li>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType4' />
-                  <span class='filter-box filter-purple'></span>
-                  Technical Schools
-                </label>
-              </li>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType5' />
-                  <span class='filter-box filter-yellow'></span>
-                  Other Public Schools
-                </label>
-              </li>
-            </ul>
+    <h4>
+  Recycling services
+</h4>
+<ul class='inputs-list unstyled'>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType1' />
+      <span class='filter-box filter-blue'></span>
+      City drop-off location
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType2' />
+      <span class='filter-box filter-green'></span>
+      Private business
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType3' />
+      <span class='filter-box filter-red'></span>
+      Hazardous materials
+    </label>
+  </li>
+</ul>
             <br />
             <a class='btn btn-primary' id='search' href='#'>
               <i class='glyphicon glyphicon-search'></i>
@@ -121,45 +101,38 @@
             </div>
           </noscript>
           <div id='map_canvas'></div>
-          <!-- Edit to include source info details -->
-          <p>View <a href="https://www.google.com/fusiontables/DataSource?docid=1FMjVRb16OqlkeodL7onaQ5A7jamtpSY0TmHaa-WQ#rows:id=1">2014-15 source data</a> from <a href="https://data.ct.gov/Education/Education-Directory/9k2y-kqxn">CT Open Data</a>.
-            Based on <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>.
+          <p class='pull-right'>
+            <a href='http://derekeder.com/searchable_map_template/'>Searchable Map Template</a> by <a href='http://derekeder.com'>Derek Eder</a>.
         </p>
         </div>
       </div>
     </div>
 
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.address.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=places&key=AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo"></script>
     <script type="text/javascript" src="js/maps_lib.js"></script>
     <script type='text/javascript'>
       //<![CDATA[
         $(window).resize(function () {
           var h = $(window).height(),
             offsetTop = 105; // Calculate the top offset
-
+        
           $('#map_canvas').css('height', (h - offsetTop));
         }).resize();
-
-        // IMPORTANT: Edit below to insert your data. See details Google Fusion Templates section in http://DataVizForAll.org
-        // fusionTableId -- go to your Google Fusion Table, File > About this table, then select and use right-click to copy
-        // googleApiKey -- click Get a Key at https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key
-        // locationColumn -- insert name of column listed as the Location data in your Google Fusion Table
-        // map_center -- for coordinates of any point in Google Maps (http://www.google.com/maps), right-click any point and select What's Here
-        // locationScope -- insert a major place name to limit Google Map searches to this area
+        
         $(function() {
           var myMap = new MapsLib({
-            fusionTableId:      "1FMjVRb16OqlkeodL7onaQ5A7jamtpSY0TmHaa-WQ",
-            googleApiKey:       "AIzaSyDIevSvpV-ONb4Pf15VUtwyr_zZa7ccwq4",
+            fusionTableId:      "1c8jV5UjJWbErBO1Rd5fpF24IqQw9E97JURfqSReM",
+            googleApiKey:       "AIzaSyBzB5HshzmRjtdp99m4gC-7Ciqs7cSPKdc",
             locationColumn:     "Address",
-            map_center:         [41.76, -72.69],
-            locationScope:      "Connecticut"
+            map_center:         [28.626963, 77.215396],
+            locationScope:      "New Delhi"
           });
 
           var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search_address'));
-
+      
           $(':checkbox').click(function(){
             myMap.doSearch();
           });
@@ -167,25 +140,25 @@
           $(':radio').click(function(){
             myMap.doSearch();
           });
-
+          
           $('#search_radius').change(function(){
             myMap.doSearch();
           });
-
+          
           $('#search').click(function(){
             myMap.doSearch();
           });
-
+          
           $('#find_me').click(function(){
-            myMap.findMe();
+            myMap.findMe(); 
             return false;
           });
-
+          
           $('#reset').click(function(){
-            myMap.reset();
+            myMap.reset(); 
             return false;
           });
-
+          
           $(":text").keydown(function(e){
               var key =  e.keyCode ? e.keyCode : e.which;
               if(key === 13) {
